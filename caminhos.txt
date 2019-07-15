@@ -1,0 +1,4 @@
+C:/Users/rocha/Documents/ArquivosSER/
+C:/Users/rocha/Documents/ArquivosPft/
+C:/Users/rocha/Documents/Trabalho/dist/certificado.exe
+C:/Users/rocha/Documents/Trabalho/dist/estaduaisRobo.exe

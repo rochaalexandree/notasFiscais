@@ -1,0 +1,2 @@
+select codigoestab, codigoempresa, inscrfederal, inscrestad from estab where inscrestad like '16%'
+select codigoestab, codigoempresa, inscrfederal, inscrmunic from estab where siglaestado = 'PB' and inscrmunic like '%' and inscrmunic not like '0%0000'
