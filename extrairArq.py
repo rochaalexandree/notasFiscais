@@ -14,6 +14,8 @@ def extrair(caminho, destino):
                 pass
             original = os.getcwd()
             filename = max([caminho + "/" + f for f in os.listdir(caminho)], key=os.path.getctime)
+            if (filename.find('.zip') == -1):
+                filename = None
             arqZip = zipfile.ZipFile(filename)
             arqZip.extractall(destino)
             arqZip.close()
@@ -53,6 +55,10 @@ def mover(caminho, destino, tipo):
                 pass
             time.sleep(4)
             filename = max([caminho + f for f in os.listdir(caminho)], key=os.path.getctime)
+            
+            if not(filename.find('.zip') == -1):
+                filename = None
+
             if os.path.isdir(destino): # vemos se este diretorio ja existe
                 pass
                 #print('Ja existe uma pasta com esse nome!')    
