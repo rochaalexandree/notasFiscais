@@ -7,7 +7,7 @@ from selenium.webdriver import DesiredCapabilities
 ## Seta as preferencias de Download do chrome ##
 
 
-def optionsDownAAA(defaultDirectory):
+def optionsDownChrome(defaultDirectory):
     download_dir = defaultDirectory
     chromeOptions = webdriver.ChromeOptions()
     preferences = {"download.default_directory": download_dir,
@@ -17,14 +17,13 @@ def optionsDownAAA(defaultDirectory):
     chromeOptions.add_experimental_option("prefs", preferences)
     chromedriver = "chromedriver.exe"
     # chromeOptions.add_argument("--headless")
-    driver = webdriver.Chrome(
-        executable_path=chromedriver, chrome_options=chromeOptions)
+    driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chromeOptions)
 
-    driver.command_executor._commands["send_command"] = (
-        "POST", '/session/$sessionId/chromium/send_command')
-    params = {'cmd': 'Page.setDownloadBehavior', 'params': {
-        'behavior': 'allow', 'downloadPath': download_dir}}
-    command_result = driver.execute("send_command", params)
+    #driver.command_executor._commands["send_command"] = (
+    #    "POST", '/session/$sessionId/chromium/send_command')
+    #params = {'cmd': 'Page.setDownloadBehavior', 'params': {
+    #    'behavior': 'allow', 'downloadPath': download_dir}}
+    #command_result = driver.execute("send_command", params)
 
     return driver
 

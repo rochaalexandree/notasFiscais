@@ -22,7 +22,6 @@ def rodaProcesso(processo):
         crawlerPftr.prefeitura(browserDois)
 
 if __name__ == "__main__":
-    
     #processos = ('crawlerSER','crawlerPftr')
     #pool = Pool(processes=2)
     #pool.map(rodaProcesso, processos)
