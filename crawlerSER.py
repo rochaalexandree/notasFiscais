@@ -39,8 +39,9 @@ def servirtual(browser, lista, tipoDeNota, posicaoAtual):
                     wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("acessoATF"))
                     time.sleep(2)
                     #browser.find_element_by_css_selector('#SERlogin > form > div:nth-child(12) > div > a').click() #Acessa o certificado Digital
-                    browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys('jos00004')
-                    browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys('RC072019')
+                    acesso = caminhos.usuarioSenha()
+                    browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys(acesso[0])
+                    browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys(acesso[1])
                     browser.implicitly_wait(2)
                     login = login + 1
                     start = False
