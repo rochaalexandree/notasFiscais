@@ -213,8 +213,9 @@ def entrarNoSistema(browser):
         try:
             browser.find_element_by_xpath('//*[@id="j_username"]').clear()
             browser.find_element_by_xpath('//*[@id="j_password"]').clear()
-            browser.find_element_by_xpath('//*[@id="j_username"]').send_keys("01870094000112")
-            browser.find_element_by_xpath('//*[@id="j_password"]').send_keys("RC002834")
+            acesso = caminhos.usuarioSenha()
+            browser.find_element_by_xpath('//*[@id="j_username"]').send_keys(acesso[0])
+            browser.find_element_by_xpath('//*[@id="j_password"]').send_keys(acesso[1])
             time.sleep(1)
             break
         except:

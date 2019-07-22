@@ -200,7 +200,7 @@ def pontoDePartida():
     except:
         return texto[0]
 
-def  usuarioSenha():
+def usuarioSenha():
     arq = open('Acesso.txt', 'r')
     texto = arq.readlines()
     arq.close()
@@ -208,7 +208,7 @@ def  usuarioSenha():
     cont = 0
     
     for atual in texto:
-        acesso[cont] = atual.replace('\n', '')
+        acesso.append(atual.replace('\n', ''))
         cont = cont + 1
     
     return acesso

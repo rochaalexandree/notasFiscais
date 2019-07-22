@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['municipaisRobo.py'],
-             pathex=['C:\\Users\\rocha\\Documents\\Trabalho'],
+             pathex=['C:\\Users\\rocha\\Documents\\notasFiscais'],
              binaries=[],
              datas=[],
              hiddenimports=[],
