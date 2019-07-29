@@ -2746,3 +2746,33 @@ JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1564367311081	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.5EkK6xTS9Den"
+1564367492411	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.fDkHl79HivDa"
+1564367494939	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564367494939	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564367494940	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564367494941	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1564367500767	Marionette	INFO	Listening on port 49935
+1564367501073	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564272072630%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js/util.js, line 291: TypeError: fTmpSessao is null
+JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js/util.js, line 291: TypeError: fTmpSessao is null
+JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js/util.js, line 291: TypeError: fTmpSessao is null
+[Parent 6964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 32, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1[5Child 5900, Chrome_ChildThread] WA633R8NING: pipe error: 109: file z:/task_1563129/bui3ld/src/ipc/chromiu383129/build/m/src/chrome/common/ipc_channel_wisrcn.cc,/ipc/chromium/src/chrome/com mline 341on/ipc_channel_win.cc, line 341
+
+[[Child 3Child 590[Parent 6964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+1564367608111	Marionette	INFO	Stopped listening on port 49935
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
