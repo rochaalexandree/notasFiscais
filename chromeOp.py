@@ -34,7 +34,8 @@ def optionsDown(defaultDirectory):
     # time.sleep(100)
 
     binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\Firefox.exe')
-    fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\2osq2yvc.default')  
+    fp = (r'C:\Users\RobCav1\AppData\Roaming\Mozilla\Firefox\Profiles\fqpgbzl9.default')  
+    #fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\2osq2yvc.default')
     opts = Options()
     opts.profile = fp
     firefox_capabilities = DesiredCapabilities.FIREFOX
