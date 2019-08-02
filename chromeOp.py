@@ -7,7 +7,7 @@ from selenium.webdriver import DesiredCapabilities
 ## Seta as preferencias de Download do chrome ##
 
 
-def optionsDownChrome(defaultDirectory):
+def optionsDown(defaultDirectory):
     download_dir = defaultDirectory
     chromeOptions = webdriver.ChromeOptions()
     preferences = {"download.default_directory": download_dir,
@@ -28,18 +28,18 @@ def optionsDownChrome(defaultDirectory):
     return driver
 
 
-def optionsDown(defaultDirectory):
-    download_dir = defaultDirectory
-    print(download_dir)
-    # time.sleep(100)
+# def optionsDown(defaultDirectory):
+#     download_dir = defaultDirectory
+#     print(download_dir)
+#     # time.sleep(100)
 
-    binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\Firefox.exe')
-    fp = (r'C:\Users\RobCav1\AppData\Roaming\Mozilla\Firefox\Profiles\fqpgbzl9.default')  
-    #fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\2osq2yvc.default')
-    opts = Options()
-    opts.profile = fp
-    firefox_capabilities = DesiredCapabilities.FIREFOX
-    firefox_capabilities['marionette'] = True
-    driver = webdriver.Firefox(capabilities=firefox_capabilities,firefox_binary=binary, firefox_options = opts)
+#     binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\Firefox.exe')
+#     fp = (r'C:\Users\RobCav1\AppData\Roaming\Mozilla\Firefox\Profiles\fqpgbzl9.default')  
+#     #fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\2osq2yvc.default')
+#     opts = Options()
+#     opts.profile = fp
+#     firefox_capabilities = DesiredCapabilities.FIREFOX
+#     firefox_capabilities['marionette'] = True
+#     driver = webdriver.Firefox(capabilities=firefox_capabilities,firefox_binary=binary, firefox_options = opts)
 
-    return driver 
+#     return driver 
