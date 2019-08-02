@@ -1,4 +1,4 @@
-C:/Users/rocha/Documents/ArquivosSER/
-C:/Users/rocha/Documents/ArquivosPft/
+D:/Rocha/workspace/notasFiscais/ArquivosSER
+D:/Rocha/workspace/notasFiscais/ArquivosPftr
 C:/Users/rocha/Documents/Trabalho/dist/certificado.exe
 C:/Users/rocha/Documents/Trabalho/dist/estaduaisRobo.exe
