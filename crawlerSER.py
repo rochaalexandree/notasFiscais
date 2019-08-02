@@ -41,7 +41,10 @@ def servirtual(browser, lista, tipoDeNota, posicaoAtual):
                     #browser.find_element_by_css_selector('#SERlogin > form > div:nth-child(12) > div > a').click() #Acessa o certificado Digital
                     acesso = caminhos.usuarioSenha()
                     browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys(acesso[0])
+                    time.sleep(2)
                     browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys(acesso[1])
+                    time.sleep(1)
+                    browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[2]/input[2]').click()
                     browser.implicitly_wait(2)
                     login = login + 1
                     start = False
@@ -96,27 +99,26 @@ def preencheDadosSER1(browser, cnpj, lista):
             element = browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[2]/td[2]/input[1]')         
             element.clear()
             element.send_keys(getData.get_dataInicial(1))
-            time.sleep(3)
 
             element = browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[2]/td[2]/input[2]')
             element.clear()
             element.send_keys(getData.get_dataFinal(1))
-            time.sleep(3)
 
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[7]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()#seleciona CNPJ
-            time.sleep(2)
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            wait(browser, 0.5).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            time.sleep(1)
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             
             browser.switch_to.default_content()
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
 
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))    
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
-            time.sleep(5)
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
-            time.sleep(2)
+            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))    
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
+            time.sleep(1) 
+            
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+            time.sleep(3)
             browser.switch_to.default_content()
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
             #browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[8]/td[2]/select/option[16]').click()#Seleciona PB
@@ -125,17 +127,40 @@ def preencheDadosSER1(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/input[4]').click() #Consultar
             time.sleep(3)
             try:
-                try:
-                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[14]/td/b/i/a')
-                    browser.switch_to.default_content()
-                    getSERXML(browser, cnpj, lista)
-                except:
+                texto = browser.switch_to_alert().getText()
+                print("capturou o texto")
+                if(texto == 'Necessário informar o Emitente ou o Destinatário.'):
+                    print("texto igual")
                     browser.switch_to_alert().accept()
-                    caminhos.addCaminhoNFe('vazio') 
-                    print("Sem acesso a essa área")
+                    time.sleep(1)
+                    browser.switch_to.default_content()
+                    wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+                    browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+                    time.sleep(5) 
+                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/input[4]').click() #Consultar
+                    time.sleep(3)
             except:
-                caminhos.addCaminhoNFe('vazio')
-                print("Não era um alerta")
+                pass
+            x = 0
+            while True:
+                try:
+                    try:
+                        browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[14]/td/b/i/a')
+                        browser.switch_to.default_content()
+                        getSERXML(browser, cnpj, lista)
+                        break
+                    except:
+                        browser.switch_to_alert().accept()
+                        caminhos.addCaminhoNFe('vazio') 
+                        print("Sem acesso a essa área")
+                        break
+                except:
+                    x = x + 1
+                    time.sleep(2)
+                    if(x == 5):
+                        caminhos.addCaminhoNFe('vazio')
+                        print("Não era um alerta")
+                        break
         except:
             caminhos.addCaminhoNFe('vazio')
             print('Erro no preenchimento dos dados')
@@ -163,16 +188,18 @@ def preencheDadosSERentrada(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[10]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()#seleciona CNPJ
 
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            
             
             browser.switch_to.default_content()
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
             
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
             
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+            
             browser.switch_to.default_content()
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
             #browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[11]/td[2]/select[1]/option[16]').click()#Seleciona PB
@@ -181,17 +208,37 @@ def preencheDadosSERentrada(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/input[4]').click() #Consultar
             time.sleep(3)
             try:
-                try:
-                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[14]/td/b/i/a')
-                    browser.switch_to.default_content()
-                    getSERXMLentrada(browser, cnpj, lista)
-                    
-                except:
+                texto = browser.switch_to_alert().getText()
+                if(texto == 'Necessário informar o Emitente ou o Destinatário.'):
                     browser.switch_to_alert().accept()
-                    print("Sem acesso a essa área")
-                    
+                    time.sleep(1)
+                    browser.switch_to.default_content()
+                    wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+                    browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+                    time.sleep(5) 
+                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/input[4]').click() #Consultar
+                    time.sleep(3)
             except:
-                print("Não era um alerta")
+                pass
+            while(True):
+                try:
+                    try:
+                        browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[14]/td/b/i/a')
+                        browser.switch_to.default_content()
+                        getSERXMLentrada(browser, cnpj, lista)
+                        break
+                        
+                    except:
+                        browser.switch_to_alert().accept()
+                        print("Sem acesso a essa área")
+                        break
+                        
+                except:
+                    x = x + 1
+                    time.sleep(2)
+                    if(x == 5):
+                        print("Não era um alerta")
+                        break
             
         except:
             print('Erro no preenchimento dos dados')
@@ -389,11 +436,13 @@ def preencheDadosSER2(browser, cnpj, lista):
             element.send_keys(getData.get_dataFinal(1))
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[8]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
-
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj])
-            browser.find_element_by_xpath('//*[@id="Layer1"]/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            time.sleep(1)
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj])
+            time.sleep(2)
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click()
             browser.switch_to.default_content()
             
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
@@ -402,19 +451,38 @@ def preencheDadosSER2(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[12]/td/input[3]').click()
             
             time.sleep(3)
-            
             try:
-                try:
-                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/b/i/a')
-                    browser.switch_to.default_content()
-                    getSERXML2(browser, cnpj, lista)
-                except:
+                texto = browser.switch_to_alert().getText()
+                if(texto == 'Necessário informar o Emitente ou o Destinatário.'):
                     browser.switch_to_alert().accept()
-                    caminhos.addCaminhoNFC('vazio')    
-                    print("Sem acesso a essa área")
+                    time.sleep(1)
+                    browser.switch_to.default_content()
+                    wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+                    browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
+                    time.sleep(5) 
+                    browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/input[4]').click() #Consultar
+                    time.sleep(3)
             except:
-                caminhos.addCaminhoNFC('vazio')
-                print("Não era um alert")
+                pass
+            while (True):
+                try:
+                    try:
+                        browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[13]/td/b/i/a')
+                        browser.switch_to.default_content()
+                        getSERXML2(browser, cnpj, lista)
+                        break
+                    except:
+                        browser.switch_to_alert().accept()
+                        caminhos.addCaminhoNFC('vazio')    
+                        print("Sem acesso a essa área")
+                        break
+                except:
+                    x = x + 1
+                    time.sleep(2)
+                    if(x == 5):
+                        caminhos.addCaminhoNFC('vazio')
+                        print("Não era um alerta")
+                        break
         except:
             caminhos.addCaminhoNFC('vazio')
             print('Erro no preenchimento dos dados')

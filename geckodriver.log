@@ -2776,3 +2776,364 @@ JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1564497770032	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.9GCgl2oQtGCv"
+1564497777675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564497777676	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564497777677	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564497777677	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564443745562%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+[Child 8432, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Chil1564497796275	Marionette	INFO	Listening on port 56082
+1564497796659	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+[Parent 13668, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 3896, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child [Parent 13668, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[C
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1E00A0,name=PBrowser::Msg_UpdateNativeWindowHandle) Closed channel: cannot send/recv
+
+hild 1
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1E008F,name=PBrowser::Msg_Destroy) Closed channel: cannot send/recv
+
+2244, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 12244, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x35011D,name=PContent::Msg_DetachBrowsingContext) Closed channel: cannot send/recv
+
+1564497820850	Marionette	INFO	Stopped listening on port 56082
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1564588527725	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.5kjI5cakc0ro"
+1564588535232	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564588535232	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564588535233	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564588535233	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564532590680%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+1564588546266	Marionette	INFO	Listening on port 57732
+1564588547459	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+[Parent 12728, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 3588, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 3588, C[Parent 12728, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+1564588679746	Marionette	INFO	Stopped listening on port 57732
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1564629667820	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.0VSvAzv2e5fP"
+1564629676699	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564629676700	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564629676700	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564629676701	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1564629686590	Marionette	INFO	Listening on port 58902
+1564629688059	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+[Child 7504, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 7504, Chr[Parent 10584, Gecko_IOThread] WARNING: file z:/task_1563383129/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+[Parent 10584, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 10584, Gecko_IOThread] WARNING: file z:/task_1563383129/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+1564630141914	Marionette	INFO	Stopped listening on port 58902
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+1564630050957	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1564630057085	Marionette	INFO	Listening on port 59370
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+1564630057654	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+[Parent 12804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 12804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 9648, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 12804, Gecko_IOThread] WARNING: file z:/task_1563383129/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+[Parent 12804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+1564631514680	Marionette	INFO	Stopped listening on port 59370
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1564633451588	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.5o2ygw8Iuc56"
+1564633455288	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564633455289	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564633455290	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564633455290	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+[Child 10828, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 10828, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 12736, Gecko_IOThread] WARNING: file z:/task_1563383129/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+[Child 6052, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Chil[Parent 12736, Gecko_IOThread] WARNING: file z:/task_1563383129/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+1564633476455	Marionette	INFO	Listening on port 60400
+1564633476945	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://sispmjp.joaopessoa.pb.gov.br:8080/sispmjp/resources/js/util.js, line 291: TypeError: fTmpSessao is null
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript warning: https://poligono.lojasaedigital.com.br/js/lib/jquery/jquery-1.10.2.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+1564633556406	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+1564633559439	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+openRemotePrompt@resource://gre/modules/Prompter.jsm:508:17
+openPrompt@resource://gre/modules/Prompter.jsm:557:13
+alert@resource://gre/modules/Prompter.jsm:615:14
+mostraAlerta@https://www4.receita.pb.gov.br/atf/js/mensagens.js:125:9
+clickConsultar@https://www4.receita.pb.gov.br/atf/fis/FISf_GerarXmlNFe.do?idSERVirtual=S&h=https://www.receita.pb.gov.br/ser/servirtual/credenciamento/info:134:4
+onclick@https://www4.receita.pb.gov.br/atf/fis/FISf_GerarXmlNFe.do?idSERVirtual=S&h=https://www.receita.pb.gov.br/ser/servirtual/credenciamento/info:1:1
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:202:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+1564633587550	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+openRemotePrompt@resource://gre/modules/Prompter.jsm:508:17
+openPrompt@resource://gre/modules/Prompter.jsm:557:13
+alert@resource://gre/modules/Prompter.jsm:615:14
+mostraAlerta@https://www4.receita.pb.gov.br/atf/js/mensagens.js:125:9
+validaForm@https://www4.receita.pb.gov.br/atf/componentes/CodDescLst.jsp?id=FISf_GerarXmlNFe_cmpEmit:72:13
+onsubmit@https://www4.receita.pb.gov.br/atf/componentes/CodDescLst.jsp?id=FISf_GerarXmlNFe_cmpEmit:1:8
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:202:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+1564633603912	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+1564633606978	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+openRemotePrompt@resource://gre/modules/Prompter.jsm:508:17
+openPrompt@resource://gre/modules/Prompter.jsm:557:13
+alert@resource://gre/modules/Prompter.jsm:615:14
+mostraAlerta@https://www4.receita.pb.gov.br/atf/js/mensagens.js:125:9
+clickConsultar@https://www4.receita.pb.gov.br/atf/fis/FISf_GerarXmlNFe.do?idSERVirtual=S&h=https://www.receita.pb.gov.br/ser/servirtual/credenciamento/info:134:4
+onclick@https://www4.receita.pb.gov.br/atf/fis/FISf_GerarXmlNFe.do?idSERVirtual=S&h=https://www.receita.pb.gov.br/ser/servirtual/credenciamento/info:1:1
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:202:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+[Parent 12736, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+[Parent 12736, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 5628, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 5628, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_156331564633636385	Marionette	INFO	Stopped listening on port 60400
+[GP
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1564633900627	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.JJI1ZKfNMZtF"
+1564633903665	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564633903666	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564633903667	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564633903667	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1564633908364	Marionette	INFO	Listening on port 60760
+1564633908431	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript error: resource://devtools/client/jsonview/converter-observer.js, line 91: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannel.contentType]
+[Parent 11304, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 7260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 7260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/i[Parent 11304, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 8704, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child1564634011156	Marionette	INFO	Stopped listening on port 60760
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1564660915311	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\Firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rocha\\AppData\\Local\\Temp\\rust_mozprofile.DXLxaCRcG3lZ"
+1564660928483	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1564660928484	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1564660928485	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1564660928485	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221564617613350%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:201:13
+
+1564660940670	Marionette	INFO	Listening on port 61490
+1564660941225	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 9: Array.forEach is deprecated; use Array.prototype.forEach instead
+JavaScript warning: https://www.receita.pb.gov.br/ser/media/system/js/mootools-core.js, line 13: Array.slice is deprecated; use Array.prototype.slice instead
+JavaScript error: https://www.receita.pb.gov.br/ser/servirtual/documentos-fiscais/nf-e/nfe-xml, line 162: TypeError: jQuery(...).popover is not a function
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript error: https://www4.receita.pb.gov.br/atf/js/popup.js, line 38: ReferenceError: $ is not defined
+JavaScript warning: https://poligono.lojasaedigital.com.br/js/lib/jquery/jquery-1.10.2.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Parent 12964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 12964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 5600, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 5600, Chrome_ChildThre[Parent 12964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 12964, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1563383129/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+1564661029271	Marionette	INFO	Stopped listening on port 61490
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
