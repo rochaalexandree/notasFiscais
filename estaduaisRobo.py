@@ -32,7 +32,7 @@ if __name__ == "__main__":
         caminhoNFC = caminhos.getCaminhosNFC()
         codigos = tratarDados.codigosImportar()
         filiais = tratarDados.codigosFiliais()
-        #questorFiscal.importar('estadual', codigos, caminhoNFe, caminhoNFC, filiais, posicaoAtual)
+        questorFiscal.importar('estadual', codigos, caminhoNFe, caminhoNFC, filiais, posicaoAtual)
         posicaoAtual = posicaoAtual + 10
         if posicaoAtual > len(lista):
             break

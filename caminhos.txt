@@ -1,4 +1,4 @@
-D:/Rocha/workspace/notasFiscais/ArquivosSER
-D:/Rocha/workspace/notasFiscais/ArquivosPftr
-C:/Users/rocha/Documents/Trabalho/dist/certificado.exe
+D:/Rocha/workspace/notasFiscais/ArquivosSER/
+D:/Rocha/workspace/notasFiscais/ArquivosPftr/
+C:/Users/rocha/Downloads/
 C:/Users/rocha/Documents/Trabalho/dist/estaduaisRobo.exe

@@ -107,13 +107,16 @@ def preencheDadosSER1(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[7]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()#seleciona CNPJ
             wait(browser, 0.5).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
-            time.sleep(1)
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             
             browser.switch_to.default_content()
             wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
 
-            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))    
+            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()    
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
             time.sleep(1) 
             
@@ -190,13 +193,16 @@ def preencheDadosSERentrada(browser, cnpj, lista):
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             
             
             browser.switch_to.default_content()
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
             
             wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
-            
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
             
@@ -220,6 +226,8 @@ def preencheDadosSERentrada(browser, cnpj, lista):
                     time.sleep(3)
             except:
                 pass
+            
+            x = 0
             while(True):
                 try:
                     try:
@@ -287,7 +295,7 @@ def getSERXMLentrada(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[3]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
-            pare = 14
+            pare = 16
         except:
             pass
             
@@ -368,7 +376,7 @@ def getSERXML(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[3]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
-            pare = 14
+            pare = 16
         except:
             pass
 
@@ -464,6 +472,8 @@ def preencheDadosSER2(browser, cnpj, lista):
                     time.sleep(3)
             except:
                 pass
+            
+            x = 0
             while (True):
                 try:
                     try:
@@ -532,7 +542,7 @@ def getSERXML2(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[9]/td[3]')
-            pare = 14
+            pare = 16
         except:
             pass
     

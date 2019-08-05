@@ -212,3 +212,10 @@ def usuarioSenha():
         cont = cont + 1
     
     return acesso
+
+def getPathDownloadDefault():
+    arq = open('caminhos.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+
+    return texto[2].replace('\n', '')    

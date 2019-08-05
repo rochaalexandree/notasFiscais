@@ -4,8 +4,11 @@ import shutil
 import time
 import glob
 import caminhos
+import re
 
 def extrair(caminho, destino):
+    caminho = caminhos.getPathDownloadDefault()
+    
     while (True):
         try:
             try:
@@ -13,7 +16,11 @@ def extrair(caminho, destino):
             except:
                 pass
             original = os.getcwd()
-            filename = max([caminho + "/" + f for f in os.listdir(caminho)], key=os.path.getctime)
+            boolean = True
+            while(boolean):
+                filename = max([caminho + "/" + f for f in os.listdir(caminho)], key=os.path.getctime)
+                boolean = verificaTipoArquivo(filename)
+
             if (filename.find('.zip') == -1):
                 filename = None
             arqZip = zipfile.ZipFile(filename)
@@ -56,7 +63,7 @@ def mover(caminho, destino, tipo):
             time.sleep(4)
             filename = max([caminho + f for f in os.listdir(caminho)], key=os.path.getctime)
             
-            if not(filename.find('.zip') == -1):
+            if (filename.find('.xml') == -1):
                 filename = None
 
             if os.path.isdir(destino): # vemos se este diretorio ja existe
@@ -90,3 +97,8 @@ def getArqUnico(caminho):
         return filename
     except:
         print("Não foi possível localizar o arquivo")
+
+def verificaTipoArquivo(filename):
+    if(not(filename.find('.zip') == -1) and not(filename.find('NFE') == -1)):
+        return False
+    return True
