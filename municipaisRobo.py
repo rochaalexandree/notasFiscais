@@ -7,33 +7,51 @@ import crawlerSER
 import questorFiscalPftr
 import tratarDados
 import time
+import lePlanilha
 
 
-def rodaProcesso(processo, posicaoAtual, lista):    
+def formataCNPJ(lista):
+    caracteresEspeciais = './-'
+    cnpjList = []
+    cnpj = ''
+    for l in lista:
+        for i in range(0, len(caracteresEspeciais)):
+            l = l.replace(caracteresEspeciais[i], '')
+        cnpjList.append(l)
+
+    return cnpjList
+
+def rodaProcesso(processo, posicaoAtual, lista, senha):    
     texto = caminhos.getCaminhos()
-    
+    cnpjFormatado = []
     if lista == []:
-        lista = tratarDados.get_inscricaoMunic()
-
+        matriz = lePlanilha.leMunicipais()
+        lista = tratarDados.get_cnpjListPlanilha(matriz)
+        senha = tratarDados.get_senhaListPlanilha(matriz)
+        cnpjFormatado = formataCNPJ(lista)
     browserDois = chromeOp.optionsDown(texto[1].replace('\n', ''))
-    crawlerPftr.prefeitura(browserDois, lista[0], lista[1], posicaoAtual)
+    crawlerPftr.prefeitura(browserDois, lista, posicaoAtual, senha, cnpjFormatado)
     
     return lista
     
 if __name__ == "__main__":
     caminhos.limparArquivosPftr()
+    posicaoAtual = int(caminhos.pontoDePartida()) # Essa função faz com que o robô inicie num ponto desejado da lista
+    if(posicaoAtual > 0):
+        caminhos.preencheCasasVaziasPftr(posicaoAtual)
     lista= []
+    senha = []
     posicaoAtual = 0
-    parada = 10
+    parada = 100
     while posicaoAtual < parada:
-        lista = rodaProcesso('crawlerPftr', posicaoAtual, lista)
-        parada = len(lista[0])
+        lista = rodaProcesso('crawlerPftr', posicaoAtual, lista, senha)
+        parada = len(lista)
         caminhoTomado = caminhos.getCaminhosPftrTomado()
         caminhoPrestado = caminhos.getCaminhosPftrPrestado()
         codigos = tratarDados.codigosImportar()
         filiais = tratarDados.codigosFiliais()
         questorFiscalPftr.importar('municipal', codigos, caminhoTomado, caminhoPrestado, filiais, posicaoAtual)
-        posicaoAtual = posicaoAtual + 10
+        posicaoAtual = parada
         
         if posicaoAtual > len(lista[0]):
             break

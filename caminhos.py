@@ -34,6 +34,15 @@ def getCaminhosNFC():
         caminhos.append(cur.replace('\n', ''))
     return caminhos
 
+def getCaminhosNFeEntrada():
+    arq = open('caminhosNFeEntrada.txt', 'r')
+    texto = arq.readlines()    
+    arq.close()
+    caminhos = []
+    for cur in texto:
+        caminhos.append(cur.replace('\n', ''))
+    return caminhos
+
 def getCaminhosPftrTomado():
     arq = open('caminhosPftrTomado.txt', 'r')
     texto = arq.readlines()    
@@ -167,6 +176,40 @@ def addCaminhoNFC(caminho):
         arquivo.writelines(conteudo)
         arquivo.close()
 
+def addCaminhoNFeEntrada(caminho):
+    try:
+        palavras = caminho.split("/")
+        novoCaminho = ""
+        for i in palavras:
+            novoCaminho = novoCaminho + i + "\\"
+        novoCaminho = novoCaminho[:-1]
+        novoCaminho = novoCaminho +'\n'
+        arquivo = open('caminhosNFeEntrada.txt', 'r')
+        conteudo = arquivo.readlines()
+
+        print (novoCaminho)
+        conteudo.append(novoCaminho)
+
+        arquivo = open('caminhosNFeEntrada.txt', 'w')
+        arquivo.writelines(conteudo)
+        arquivo.close()
+    except:
+        palavras = caminho.split("/")
+        novoCaminho = ""
+        for i in palavras:
+            novoCaminho = novoCaminho + i + "\\"
+        novoCaminho = novoCaminho[:-1]
+        novoCaminho = novoCaminho +'\n'
+
+        arquivo = open('caminhosNFeEntrada.txt', 'r')
+        conteudo = arquivo.readlines()
+
+        conteudo.append(caminho + '\n')
+
+        arquivo = open('caminhosNFeEntrada.txt', 'w')
+        arquivo.writelines(conteudo)
+        arquivo.close()
+
 def limparArquivos():
     arquivo = open('relatorioSER.txt', 'w')
     arquivo.close()
@@ -177,6 +220,8 @@ def limparArquivos():
     arquivo = open('codigos.txt', 'w')
     arquivo.close()
     arquivo = open('numFilial.txt', 'w')
+    arquivo.close()
+    arquivo = open('caminhosNFeEntrada.txt', 'w')
     arquivo.close()
 
 def limparArquivosPftr():
@@ -218,4 +263,64 @@ def getPathDownloadDefault():
     texto = arq.readlines()
     arq.close()
 
-    return texto[2].replace('\n', '')    
+    return texto[2].replace('\n', '')
+
+def preencheCasasVazias(posicao):
+    arq = open('caminhosNFe.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+    arq = open('caminhosNFe.txt', 'w')
+    cont = 0
+    while (cont < posicao):
+        texto.append('vazio' + '\n')
+        cont = cont + 1
+        
+    arq.writelines(texto)
+    arq.close()
+
+    arq = open('caminhosNFC.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+    arq = open('caminhosNFC.txt', 'w')
+    cont = 0 
+    while (cont < posicao):
+        texto.append('vazio' + '\n')
+        cont = cont + 1
+    arq.writelines(texto)
+    arq.close()
+
+    arq = open('caminhosNFeEntrada.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+    arq = open('caminhosNFeEntrada.txt', 'w')
+    cont = 0
+    while (cont < posicao):
+        texto.append('vazio' + '\n')
+        cont = cont + 1
+        
+    arq.writelines(texto)
+    arq.close()
+            
+def preencheCasasVaziasPftr(posicao):
+    arq = open('caminhosPftrPrestado.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+    arq = open('caminhosPftrPrestado.txt', 'w')
+    cont = 0
+    while (cont < posicao):
+        texto.append('vazio' + '\n')
+        cont = cont + 1
+        
+    arq.writelines(texto)
+    arq.close()
+
+    arq = open('caminhosPftrTomado.txt', 'r')
+    texto = arq.readlines()
+    arq.close()
+    arq = open('caminhosPftrTomado.txt', 'w')
+    cont = 0 
+    while (cont < posicao):
+        texto.append('vazio' + '\n')
+        cont = cont + 1
+    arq.writelines(texto)
+    arq.close()

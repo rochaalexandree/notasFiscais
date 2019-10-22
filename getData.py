@@ -27,6 +27,11 @@ def get_dataInicial(tipo):
             data = str(month) + "-" + str(year)
         else:
             data = str(month) + "-" + str(year)
+    elif(tipo == 4):
+        if month >=10:
+            data ='01.' +str(month) + "." + str(year)
+        else:
+            data ='01.0' +str(month) + "." + str(year)
     return data
 
 def get_dataFinal(tipo):
@@ -51,5 +56,9 @@ def get_dataFinal(tipo):
             data = str(monthRange[1]) + "/" + str(month) + "/" + str(year)
         else:
             data = str(monthRange[1]) + "/0" + str(month) + "/" + str(year)
-    
+    elif tipo == 3:
+        if month >=10:
+            data = str(monthRange[1]) + "." + str(month) + "." + str(year)
+        else:
+            data = str(monthRange[1]) + ".0" + str(month) + "." + str(year)
     return data

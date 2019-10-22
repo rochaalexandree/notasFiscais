@@ -12,6 +12,24 @@ def get_cnpjList():
 
     return cnpjList
 
+def get_cnpjListPlanilha(lista):
+    
+    cnpjList = []
+    for y in lista:
+        cnpjList.append(y[2])
+        addList_UniCode_All(y[1])
+        addList_filialCode_All(y[0])    
+
+    return cnpjList
+
+def get_senhaListPlanilha(lista):
+    
+    senhaList = []
+    for y in lista:
+        senhaList.append(y[3])    
+
+    return senhaList
+
 def get_inscricaoMunic():
     lista = connectFDB.connect_FDB('municipal')
     inscricaoMunic = []
@@ -26,7 +44,7 @@ def get_inscricaoMunic():
     return lista
 
 def get_codigo():
-    lista = connectFDB.connect_FDB() 
+    lista = connectFDB.connect_FDB('estadual') 
     codigoList = []
     for y in lista:
         codigoList.append(y[0])

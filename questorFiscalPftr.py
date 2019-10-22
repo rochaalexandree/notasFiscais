@@ -9,7 +9,7 @@ from pywinauto import keyboard
 
 def importar(tipo, codigoEmpresa, caminhoTomado, caminhoPrestado, filiais, posicaoAtual):
     
-    app = Application().start(cmd_line=u'C:/nQuestor/nfis.exe')
+    app = Application().start(cmd_line=u'D:/nQuestor/nfis.exe')
     
     tnfrmloginquestor = app.TnFrmLoginQuestor
             
@@ -17,14 +17,14 @@ def importar(tipo, codigoEmpresa, caminhoTomado, caminhoPrestado, filiais, posic
     while(True):
         try:
             tnfrmloginquestor[u'4'].wait("visible")
+            tnfrmloginquestor[u'3'].type_keys('administrador')
+            tnfrmloginquestor[u'4'].type_keys('masterkey')
             break
         except:
             time.sleep(2)
 
     ## faz o login ##
     time.sleep(2)
-    tnfrmloginquestor[u'3'].type_keys('administrador')
-    tnfrmloginquestor[u'4'].type_keys('masterkey')
     tnfrmloginquestor.TnButton2.click()
 
     municipal(caminhoTomado, caminhoPrestado, app, codigoEmpresa, filiais, posicaoAtual)
@@ -142,7 +142,7 @@ def municipal(caminhoTomado, caminhoPrestado, app, codigoEmpresa, filiais, posic
     
 def municipalPrestado(caminhoPrestado, app):
     tnfissmenu = app.TnFisSMenu
-    tnfissmenu.menu_item(u'Ar&quivos->#2->#4').click()
+    tnfissmenu.menu_item(u'Ar&quivos->#3->#4').click()
     
     try:
         while(True):
@@ -162,9 +162,9 @@ def municipalPrestado(caminhoPrestado, app):
         tnfissmenu.TnComboBox18.select("Emitidas (Saídas)") # Movimento
         tnfissmenu.TnComboBox16.select("Tributado") #Integrar    
         tnfissmenu.TnComboBox14.select("Sim") #importar Produto 
-        tnfissmenu.TnComboBox12.select("Sim") # Importar Pis/cofins/Outros
+        tnfissmenu.TnComboBox12.select("Não") # Importar Pis/cofins/Outros
         tnfissmenu.TnComboBox10.select("Sim") #Impotar produto padrão
-        tnfissmenu.TnComboBox8.select("Permitir Erros") #Tratamento de Erro
+        tnfissmenu.TnComboBox8.select("Não Permitir Erros") #Tratamento de Erro
         tnfissmenu.TnComboBox6.select("Importar Somente NFe não Importadas") #Tipo de Processamento
         tnfissmenu.TnComboBox4.select("Não") #validar emitente   
         tnfissmenu.TnComboBox2.select("Um Único Arquivo") #Tipo do Local
@@ -184,28 +184,30 @@ def municipalPrestado(caminhoPrestado, app):
 
         ## IRRF ##
         tnfissmenu.TnMaskEdit22.type_keys("1708")
-        tnfissmenu.TnMaskEdit21.type_keys("6")
+        tnfissmenu.TnMaskEdit21.type_keys("1")
 
         ## PIS ##
         tnfissmenu.TnMaskEdit18.type_keys("5952")
-        tnfissmenu.TnMaskEdit17.type_keys("7")
+        tnfissmenu.TnMaskEdit17.type_keys("2")
 
         ## COFINS ##
         tnfissmenu.TnMaskEdit14.type_keys("5952")
-        tnfissmenu.TnMaskEdit13.type_keys("7")
+        tnfissmenu.TnMaskEdit13.type_keys("2")
 
         ## CSLL ##
         tnfissmenu.TnMaskEdit10.type_keys("5952")
-        tnfissmenu.TnMaskEdit9.type_keys("7")
+        tnfissmenu.TnMaskEdit9.type_keys("2")
         
         tnfissmenu.TnMaskEdit6.type_keys(caminhoPrestado) # caminho 
-
-        tnfissmenu.nToolBar.type_keys('{F9}')
+        tnfissmenu.Static.click()
+        # tnfissmenu.nToolBar.type_keys('{F9}')
             #time.sleep(10)
         while(True):
             try:
-                tnfissmenu[u'22'].wait("visible")
-                tnfissmenu.Static2.wait_not('visible')
+                tnfissmenu.Static2.wait('visible')
+                tnfissmenu.Static.wait('visible')
+                time.sleep(3)
+                tnfissmenu.Static.click()
                 print('NFC-e Importado')
                 conteudo = "NFe Saídas foi Importado\n"
                 relatorio.relatorioPftr(conteudo)
@@ -218,7 +220,7 @@ def municipalPrestado(caminhoPrestado, app):
 
 def municipalTomado(caminhoTomado, app):
     tnfissmenu = app.TnFisSMenu
-    tnfissmenu.menu_item(u'Ar&quivos->#2->#4').click()
+    # tnfissmenu.menu_item(u'Ar&quivos->#3->#4').click()
     
     try:
         while(True):
@@ -261,12 +263,15 @@ def municipalTomado(caminhoTomado, app):
         
         tnfissmenu.TnMaskEdit6.type_keys(caminhoTomado) # caminho 
 
-        tnfissmenu.nToolBar.type_keys('{F9}')
+        tnfissmenu.Static.click()
+        # tnfissmenu.nToolBar.type_keys('{F9}')
             #time.sleep(10)
         while(True):
             try:
-                tnfissmenu[u'22'].wait("visible")
-                tnfissmenu.Static2.wait_not('visible')
+                tnfissmenu.Static2.wait('visible')
+                tnfissmenu.Static.wait('visible')
+                time.sleep(3)
+                tnfissmenu.Static.click()
                 print('NFC-e Importado')
                 conteudo = "NFe Entradas foi Importado\n"
                 relatorio.relatorioPftr(conteudo)

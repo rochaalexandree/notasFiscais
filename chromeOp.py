@@ -34,10 +34,10 @@ from selenium.webdriver import DesiredCapabilities
 #     # time.sleep(100)
 
 #     binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
-#     #fp = (r'C:\Users\RobCav1\AppData\Roaming\Mozilla\Firefox\Profiles\fqpgbzl9.default')  
-#     fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\quv7tnv1.default')
+#     # fp = (r'C:\Users\RobCav1\AppData\Roaming\Mozilla\Firefox\Profiles\0xb44bur.default-release')  
+#     #fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\quv7tnv1.default')
+#     fp = (r'C:\Users\rocha\AppData\Roaming\Mozilla\Firefox\Profiles\ygfnwbib.default-release')
 #     opts = Options()
-#     opts.binary = binary
 #     opts.profile = fp
 #     firefox_capabilities = DesiredCapabilities.FIREFOX
 #     firefox_capabilities['marionette'] = True
@@ -51,7 +51,7 @@ def optionsDown(defaultDirectory):
     profile.set_preference("browser.download.manager.showWhenStarting", False)
     profile.set_preference("browser.download.dir", "/down")
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/x-gzip, application/zip, application/xml")
-
+    
     driver = webdriver.Firefox(firefox_profile=profile)
 
     return driver

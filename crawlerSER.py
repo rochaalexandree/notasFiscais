@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.webdriver.support.ui import WebDriverWait as wait 
 
-def servirtual(browser, lista, tipoDeNota, posicaoAtual):
+def servirtual(browser, lista, tipoDeNota, posicaoAtual, stop):
     execute = posicaoAtual #Controla as execuções
     login = posicaoAtual #Garante que o login só será feito uma vez a cada 15 minutos 
     parada = len(lista) #limite temporário de execução
@@ -40,14 +40,24 @@ def servirtual(browser, lista, tipoDeNota, posicaoAtual):
                     time.sleep(2)
                     #browser.find_element_by_css_selector('#SERlogin > form > div:nth-child(12) > div > a').click() #Acessa o certificado Digital
                     acesso = caminhos.usuarioSenha()
-                    browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys(acesso[0])
-                    time.sleep(2)
-                    browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys(acesso[1])
-                    time.sleep(1)
-                    browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[2]/input[2]').click()
-                    browser.implicitly_wait(2)
-                    login = login + 1
-                    start = False
+                    if(stop < parada):
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys(acesso[0])
+                        time.sleep(2)
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys(acesso[1])
+                        time.sleep(1)
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[2]/input[2]').click()
+                        browser.implicitly_wait(2)
+                        login = login + 1
+                        start = False
+                    else:
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-username"]/div/input').send_keys(acesso[3])
+                        time.sleep(2)
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[1]/input').send_keys(acesso[4])
+                        time.sleep(1)
+                        browser.find_element_by_xpath('//*[@id="form-cblogin-password"]/div[2]/input[2]').click()
+                        browser.implicitly_wait(2)
+                        login = login + 1
+                        start = False
                 except:
                     time.sleep(1)
                     if(inicio == 29):
@@ -82,7 +92,7 @@ def servirtual(browser, lista, tipoDeNota, posicaoAtual):
         browser.switch_to.default_content()
         execute = execute + 1
         time.sleep(3)
-        if((execute > 9) and ((execute % 10) == 0)):
+        if(execute == stop):
             break
         if cnpj == parada:
             break
@@ -105,17 +115,18 @@ def preencheDadosSER1(browser, cnpj, lista):
             element.send_keys(getData.get_dataFinal(1))
 
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[7]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()#seleciona CNPJ
-            wait(browser, 0.5).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
+            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             
             browser.switch_to.default_content()
-            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
 
-            wait(browser, 0.1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
-            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').send_keys("123")    
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()    
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
             time.sleep(1) 
@@ -190,7 +201,7 @@ def preencheDadosSERentrada(browser, cnpj, lista):
 
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[10]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()#seleciona CNPJ
 
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
+            wait(browser, 0).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()    
@@ -198,10 +209,11 @@ def preencheDadosSERentrada(browser, cnpj, lista):
             
             
             browser.switch_to.default_content()
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+            wait(browser, 0).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
             
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').send_keys("123")
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys(lista[cnpj]) #Digita CNPJ
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[3]/input').click() #Pesquisa
@@ -238,6 +250,7 @@ def preencheDadosSERentrada(browser, cnpj, lista):
                         
                     except:
                         browser.switch_to_alert().accept()
+                        caminhos.addCaminhoNFeEntrada('vazio')
                         print("Sem acesso a essa área")
                         break
                         
@@ -245,13 +258,16 @@ def preencheDadosSERentrada(browser, cnpj, lista):
                     x = x + 1
                     time.sleep(2)
                     if(x == 5):
+                        caminhos.addCaminhoNFeEntrada('vazio')
                         print("Não era um alerta")
                         break
             
         except:
+            caminhos.addCaminhoNFeEntrada('vazio')
             print('Erro no preenchimento dos dados')
             #controlExec = controlExec - 1
     except:
+        caminhos.addCaminhoNFeEntrada('vazio')
         print('Erro no acesso a página')
         conteudo = "Sem acesso a página dos Documentos fiscais de " + lista[cnpj] + " ou a internet\n"
         relatorio.relatorioSER(conteudo)
@@ -295,7 +311,7 @@ def getSERXMLentrada(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[3]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
-            pare = 16
+            pare = 17
         except:
             pass
             
@@ -328,6 +344,8 @@ def getSERXMLentrada(browser, cnpj, lista):
         destino = caminho + getData.get_dataInicial(3) + '/' + lista[cnpj] + '/NFe-Entrada'
         time.sleep(3)
         extrairArq.extrair(caminho, destino)
+        caminhos.addCaminhoNFeEntrada(destino)
+
         print("Download e extração dos arquivos de " + lista[cnpj] +" realizada\n")
         conteudo = "Download e extração dos arquivos de " + lista[cnpj] +" realizada\n"
         try:
@@ -335,6 +353,7 @@ def getSERXMLentrada(browser, cnpj, lista):
         except:
             print('Erro ao adicionar ao relatorio')
     except:
+        caminhos.addCaminhoNFeEntrada('vazio')
         print('impossibilitado de fazer o download de ' + lista[cnpj])
         conteudo = "impossibilitado de fazer o download de " + lista[cnpj] + "\n"
         relatorio.relatorioSER(conteudo)
@@ -376,7 +395,7 @@ def getSERXML(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[3]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
-            pare = 16
+            pare = 17
         except:
             pass
 
@@ -443,7 +462,14 @@ def preencheDadosSER2(browser, cnpj, lista):
             element.clear()
             element.send_keys(getData.get_dataFinal(1))
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[8]/td/table/tbody/tr[1]/td[2]/select/option[2]').click()
-            wait(browser, 2).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
+
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("cmpDest"))
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').send_keys('123')
+            browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
+            browser.switch_to.default_content()
+
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("iframe"))
+            wait(browser, 1).until(EC.frame_to_be_available_and_switch_to_it("cmpEmit"))
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input').clear()
             time.sleep(1)
             browser.find_element_by_xpath('/html/body/div/table/tbody/tr/td/form/table/tbody/tr[2]/td[2]/input[1]').clear()
@@ -457,7 +483,7 @@ def preencheDadosSER2(browser, cnpj, lista):
             
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[12]/td/select/option[3]').click()
             browser.find_element_by_xpath('/html/body/table/tbody/tr[2]/td/form/table/tbody/tr[12]/td/input[3]').click()
-            
+
             time.sleep(3)
             try:
                 texto = browser.switch_to_alert().getText()
@@ -542,7 +568,7 @@ def getSERXML2(browser, cnpj, lista):
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[5]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[7]/td[3]')
             browser.find_element_by_xpath('/html/body/form/div/table/tbody/tr[9]/td[3]')
-            pare = 16
+            pare = 17
         except:
             pass
     

@@ -6,10 +6,11 @@ import extrairArq
 import tratarDados
 import relatorio
 from pywinauto import keyboard
+from pywinauto.keyboard import send_keys
 
-def importar(tipo, codigoEmpresa, caminhoNFe, caminhoNFC, filiais, posicaoAtual):
+def importar(tipo, codigoEmpresa, caminhoNFe, caminhoNFC, caminhoNFeEntrada, filiais, posicaoAtual, stop):
     
-    app = Application().start(cmd_line=u'C:/nQuestor/nfis.exe')
+    app = Application().start(cmd_line=u'D:/nQuestor/nfis.exe')
     
     tnfrmloginquestor = app.TnFrmLoginQuestor
             
@@ -23,11 +24,18 @@ def importar(tipo, codigoEmpresa, caminhoNFe, caminhoNFC, filiais, posicaoAtual)
 
     ## faz o login ##
     time.sleep(2)
-    tnfrmloginquestor[u'3'].type_keys('robcav')
-    tnfrmloginquestor[u'4'].type_keys('masterkey')
-    tnfrmloginquestor.TnButton2.click()
+    while(True):
+        try:
+            tnfrmloginquestor[u'3'].type_keys('administrador')
+            time.sleep(1)
+            tnfrmloginquestor[u'4'].type_keys('masterkey')
+            tnfrmloginquestor.TnButton2.click()
+            break
+        except:
+            time.sleep(2)
+            pass
 
-    estaduaisNFs(caminhoNFe, caminhoNFC, app, codigoEmpresa, filiais, posicaoAtual)
+    estaduaisNFs(caminhoNFe, caminhoNFC, caminhoNFeEntrada, app, codigoEmpresa, filiais, posicaoAtual, stop)
     
 
     app.kill()
@@ -112,17 +120,26 @@ def escolherEmpresa(app, codigoEmpresa, filial):
         except:
             pass
 
-def estaduaisNFs(caminhoNFe, caminhoNFC, app, codigoEmpresa, filiais, posicaoAtual):
+def estaduaisNFs(caminhoNFe, caminhoNFC, caminhoNFeEntrada, app, codigoEmpresa, filiais, posicaoAtual, stop):
     posiCami = posicaoAtual
-    pare = posiCami + 10
+    pare = stop
     
     while(True):
         try:
-            if caminhoNFe[posiCami] != "vazio" or caminhoNFC[posiCami] != "vazio":
+            if caminhoNFe[posiCami] != "vazio" or caminhoNFC[posiCami] != "vazio" or caminhoNFeEntrada[posiCami] != "vazio":
                 if(posiCami == pare):
                     break
                 try:
-                    escolherEmpresa(app, codigoEmpresa[posiCami], filiais[posiCami])
+                    if posiCami == posicaoAtual:
+                        escolherEmpresa(app, codigoEmpresa[posiCami], filiais[posiCami])
+                    else:
+                        # Adicionar código e número de filial
+                        app.TnFisSMenu.TnMaskEdit16.wait('visible')
+                        send_keys(codigoEmpresa[posiCami])
+                        time.sleep(2)
+                        app.TnFisSMenu.TnMaskEdit16.type_keys(filiais[posiCami])
+                        time.sleep(1)
+                        pass
                 except:
                     break
 
@@ -135,24 +152,69 @@ def estaduaisNFs(caminhoNFe, caminhoNFC, app, codigoEmpresa, filiais, posicaoAtu
                 try:
                     if not(caminhoNFe[posiCami] == 'vazio'):
                         tnfissmenu = app.TnFisSMenu
-                        tnfissmenu.menu_item(u'Ar&quivos->#1->#2').click()
-
+                        
+                        # garante que só vai acessar o menu na primeira execução
+                        if posiCami == posicaoAtual:
+                            tnfissmenu.menu_item(u'Ar&quivos->#2->#2').click()
+                            
                         while(True):
                             try:
                                 tnfissmenu.TnComboBox4.wait("visible")
+                                time.sleep(1)
                                 break
                             except:
                                 time.sleep(2)
                         try:
-                            tnfissmenu.TnComboBox4.select("Vários Arquivos")
+                            if posiCami == posicaoAtual:
+                                app.TnFisSMenu.TnComboBox28.select('Ambos')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox26.select('Não Permitir Erros')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox24.select('Importar Somente não Importados')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox22.select('Sim')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox20.select('Não')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox18.select('Não')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox16.select('Não')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox14.select('Não')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox12.select('Sim')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox10.select('Não Importar')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox8.select('Outras')
+                                time.sleep(1)
+                                app.TnFisSMenu.TnComboBox6.select('Outras')
+                                time.sleep(1)
+                                tnfissmenu.TnComboBox4.select("Vários Arquivos")
                             #tnfissmenu.nToolBar.print_control_identifiers()
                             tnfissmenu.TnMaskEdit9.type_keys(caminhoNFe[posiCami])
                             tnfissmenu.nToolBar.type_keys('{F9}')
                             #time.sleep(10)
                             while(True):
                                 try:
-                                    tnfissmenu[u'22'].wait("visible")
-                                    tnfissmenu.Static2.wait_not('visible')
+                                    # tnfissmenu[u'22'].wait("visible")
+                                    tnfissmenu.Static2.wait('visible')
+                                    tnfissmenu.Static.wait("visible")
+                                    time.sleep(3)
+                                    tnfissmenu.Static.wait("visible")
+
+                                    # relatório fica aqui
+                                    # print(tnfissmenu.TnTreeView.texts())
+                                    # tnfissmenu.TnTreeView.set_focus().click_input(button='right')
+                                    
+                                    # time.sleep(2)
+                                    # print ([item['text'] for item in app.PopupMenu.menu_items()])
+                                    # app.PopupMenu.menu_item(u'&Gravar em Arquivo...').click_input()
+                                    
+                                    
+
+                                    tnfissmenu.Static.click()
+
                                     print('NF-e Importado')
                                     conteudo = "NF-e Importado\n"
                                     relatorio.relatorioSER(conteudo)
@@ -170,6 +232,9 @@ def estaduaisNFs(caminhoNFe, caminhoNFC, app, codigoEmpresa, filiais, posicaoAtu
                     #Verifica se o proximo caminho leva a um NFC-e para que ele não avance antes de importar  
                     if not(caminhoNFC[posiCami] == 'vazio'):  
                         estaduaisNFCs(caminhoNFC, app, posiCami)
+                    
+                    if not(caminhoNFeEntrada[posiCami] == 'vazio'):
+                        estaduaisNFsEntrada(caminhoNFeEntrada, app, posiCami)
                 except:
                     print('Não há mais arquivos NFCs para importar')
                     break
@@ -189,17 +254,6 @@ def estaduaisNFCs(caminho, app, posiCami):
     while(True):
         try:
             tnfissmenu = app.TnFisSMenu
-            tnfissmenu[u'21'].wait("visible")
-            #tnfissmenu.menu_item(u'#0->&Fechar\tCtrl+F4')
-            time.sleep(3)
-            tnfissmenu.menu_item(u'#0->&Fechar\tCtrl+F4').click()
-            tnfissmenu.menu_item(u'Ar&quivos->#1->#2').click()
-            break
-        except:
-            time.sleep(3)
-
-    while(True):
-        try:
             tnfissmenu.TnComboBox4.wait("visible")
             break
         except:
@@ -213,8 +267,17 @@ def estaduaisNFCs(caminho, app, posiCami):
             #time.sleep(10)
             while(True):
                 try:
-                    tnfissmenu[u'22'].wait("visible")
-                    tnfissmenu.Static2.wait_not('visible')
+                    # tnfissmenu[u'22'].wait("visible")
+                    
+                    tnfissmenu.Static2.wait('visible')
+                    tnfissmenu.Static.wait("visible")
+                    time.sleep(3)
+                    tnfissmenu.Static.wait("visible")
+
+
+
+                    tnfissmenu.Static.click()
+
                     print('NFC-e Importado')
                     conteudo = "NFC-e Importado\n"
                     relatorio.relatorioSER(conteudo)
@@ -225,6 +288,56 @@ def estaduaisNFCs(caminho, app, posiCami):
             break
         except:
             print('Problema na importacao do NFC-e')
+            time.sleep(2)
+    
+    time.sleep(5)
+
+
+def estaduaisNFsEntrada(caminhoNFeEntrada, app, posiCami):
+    while(True):
+            try:
+                app.TnFisSMenu.wait("visible")
+                break
+            except:
+                time.sleep(2)
+
+    while(True):
+        try:
+            tnfissmenu = app.TnFisSMenu
+            tnfissmenu.TnComboBox4.wait("visible")
+            break
+        except:
+            time.sleep(2)
+    while(True):
+        try:
+            tnfissmenu.TnComboBox4.select("Vários Arquivos")
+            #tnfissmenu.nToolBar.print_control_identifiers()
+            tnfissmenu.TnMaskEdit9.type_keys(caminhoNFeEntrada[posiCami])
+            tnfissmenu.nToolBar.type_keys('{F9}')
+            #time.sleep(10)
+            while(True):
+                try:
+                    # tnfissmenu[u'22'].wait("visible")
+                    
+                    tnfissmenu.Static2.wait('visible')
+                    tnfissmenu.Static.wait("visible")
+                    time.sleep(3)
+                    tnfissmenu.Static.wait("visible")
+
+
+
+                    tnfissmenu.Static.click()
+
+                    print('NFe de Entrada Importado')
+                    conteudo = "NFe de Entrada Importado\n"
+                    relatorio.relatorioSER(conteudo)
+                    break
+                except:
+                    time.sleep(2)
+            
+            break
+        except:
+            print('Problema na importacao do NFe de Entrada')
             time.sleep(2)
     
     time.sleep(5)
